@@ -22,7 +22,7 @@ class ApiMarcacaoController extends Controller
         
 
         foreach($Marcacao as $marcacoes){
-            $a = ['leitura_mes'=>$marcacoes->leitura_mes, 'data' => $marcacoes->data,'hora' => $marcacoes->hora, 'endereco_id' => $marcacoes->endereco_id];
+            $a = ['id'=>$marcacoes->id ,'leitura_mes'=>$marcacoes->leitura_mes, 'data' => $marcacoes->data,'hora' => $marcacoes->hora, 'endereco_id' => $marcacoes->endereco_id];
             array_push($arr,$a);
         }
 
@@ -72,9 +72,14 @@ class ApiMarcacaoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        //
+        $marcacao = Marcacao::find($id);
+
+        return response()->json(
+             $marcacao
+
+        ,200);
     }
 
     /**

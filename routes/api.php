@@ -19,6 +19,7 @@ Route::post('register', 'ApiController@register');
 
 Route::get('marcacao', 'ApiMarcacaoController@index');
 Route::post('marcacao', 'ApiMarcacaoController@store');
+Route::get('marcacao/{id}', 'ApiMarcacaoController@show');
 
 
 

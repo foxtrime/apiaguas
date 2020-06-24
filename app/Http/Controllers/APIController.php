@@ -24,6 +24,8 @@ public function login(Request $request)
         $input = $request->only('cpf', 'password');
         $token = null;
 
+
+
         if (!$token = JWTAuth::attempt($input)) {
             return response()->json([
                 'success' => false,
@@ -31,7 +33,11 @@ public function login(Request $request)
             ], 401);
         }
 
+         $usuario_logado = JWTAuth::user();
+         
         return response()->json([
+            'cpf' => $request->cpf,
+            'name' => $usuario_logado->name,
             'success' => true,
             'msg' => "Usuario Logado",
             'token' => $token,
