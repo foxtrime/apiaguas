@@ -11,7 +11,7 @@ class Marcacao extends Model
     protected $fillable = [
         
         'leitura_mes',
-        'data',
+        'dia',
         'hora',
 
     ];

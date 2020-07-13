@@ -16,7 +16,7 @@ class CreateApiMarcacaoTable extends Migration
         Schema::create('api_marcacao', function (Blueprint $table) {
             $table->increments('id');
             $table->string('leitura_mes');
-            $table->string('data');
+            $table->string('dia');
             $table->string('hora');
             // $table->blob('foto');           
             $table->timestamps();

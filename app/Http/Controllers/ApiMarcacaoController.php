@@ -22,7 +22,7 @@ class ApiMarcacaoController extends Controller
         
 
         foreach($Marcacao as $marcacoes){
-            $a = ['id'=>$marcacoes->id ,'leitura_mes'=>$marcacoes->leitura_mes, 'data' => $marcacoes->data,'hora' => $marcacoes->hora, 'endereco_id' => $marcacoes->endereco_id];
+            $a = ['id'=>$marcacoes->id ,'leitura_mes'=>$marcacoes->leitura_mes, 'dia' => $marcacoes->dia,'hora' => $marcacoes->hora, 'endereco_id' => $marcacoes->endereco_id];
             array_push($arr,$a);
         }
 
@@ -54,7 +54,7 @@ class ApiMarcacaoController extends Controller
         
         $marcacao = new Marcacao();
         $marcacao->leitura_mes = $request->leitura_mes;
-        $marcacao->data = $request->data;
+        $marcacao->dia = $request->dia;
         $marcacao->hora = $request->hora;
         $marcacao->endereco_id = $request->endereco_id;
         $marcacao->save();
@@ -62,7 +62,7 @@ class ApiMarcacaoController extends Controller
         return response()->json([
             'success'   =>  true,
             'data'      =>  $marcacao
-        ], 200);
+        ], 201);
 
     }
 
@@ -94,13 +94,13 @@ class ApiMarcacaoController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Updia the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updia(Request $request, $id)
     {
         //
     }

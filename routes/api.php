@@ -22,6 +22,8 @@ Route::post('marcacao', 'ApiMarcacaoController@store');
 Route::get('marcacao/{id}', 'ApiMarcacaoController@show');
 
 
+Route::get('endereco', 'ApiClienteEnderecoController@index');
+
 
 
 Route::group(['middleware' => 'auth.jwt'], function () {

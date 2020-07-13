@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ClienteEndereco;
+
 
 class ApiClienteEnderecoController extends Controller
 {
@@ -13,7 +15,22 @@ class ApiClienteEnderecoController extends Controller
      */
     public function index()
     {
-        //
+        $clienteEndereco = ClienteEndereco::all();
+
+
+        $arr = [];
+        
+
+        foreach($clienteEndereco as $clienteEnderecos){
+            $a = ['id'=>$clienteEnderecos->id, 'num_hidro'=>$clienteEnderecos->num_hidro,'rua'=>$clienteEnderecos->rua, 'numero'=>$clienteEnderecos->numero, 'bairro'=>$clienteEnderecos->bairro,'complemento'=>$clienteEnderecos->complemento   ];
+            array_push($arr,$a);
+        }
+
+         //dd($arr);
+        return response()->json(
+            $arr
+        ); 
+
     }
 
     /**
